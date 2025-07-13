@@ -16,7 +16,29 @@
 
 ## 2. 실습 과정 및 코드
 
-### (1) 데이터셋 폴더 구조 변경
+### (1) 라벨링 진행
+
+
+- python 3.9.1 설치
+- 구글 Colab 실행
+
+```python
+from ultralytics import YOLO
+model = YOLO('yolov8n.pt')
+
+!pip install ultralytics -U
+```
+- 명령 프롬포트 실행
+
+```python
+python -m venv labelimg_env
+labelimg_env\Scripts\activate
+python -m pip install —upgrade pip
+pip install labelImg PyQt5 lxml
+labelImg # 바로 라벨링 시작
+```
+
+### (2) 데이터셋 폴더 구조 변경
 
 ```
 # 아래 그림처럼 your_dataset 폴더 안의 구조를 정확히 맞추어준다.
@@ -33,7 +55,7 @@ your_dataset/
 # 파일 이동: 기존 all_data 폴더에서 dog__N_.jpg 파일들을 images/train/ 또는 images/val/로, dog__N_.txt 파일들을 labels/train/ 또는 labels/val/로 정확히 이동시킵니다.
 ```
 
-### (2) your_dataset.yaml 작성
+### (3) your_dataset.yaml 작성
 
 ```yaml
 train: images/train/
@@ -43,7 +65,7 @@ names: ['dog']
 # 저장 시 주의 : 반드시 UTF-8 인코딩으로 저장
 ```
 
-### (3) 구글 드라이브 업로드
+### (4) 구글 드라이브 업로드
 
 - 수정된 your_dataset 폴더를 다시 dog.zip으로 압축
 - `dog.zip` 파일을 구글 드라이브에 업로드 (기존파일 존재시 덮어쓰기)
@@ -57,8 +79,7 @@ drive.mount('/content/drive')
 !unzip -q /content/dog.zip -d /content/ #4단계: dog.zip 압축 해제
 ```
 
-
-### (4) YOLOv8 학습 실행
+### (5) YOLOv8 학습 실행
 
 ```python
 from ultralytics import YOLO
@@ -73,9 +94,10 @@ results = model.train(
 )
 ```
 
-### (5) 모델 저장
+### (6) 모델 저장
 
 - 구글 드라이브로 저장
+  
 ```python
 results_path = '/content/runs/detect/dog_detection_model_folder_structure/'
 destination_path = '/content/drive/MyDrive/YOLO_Models/'
@@ -84,7 +106,7 @@ destination_path = '/content/drive/MyDrive/YOLO_Models/'
 print(f"학습 결과가 '{destination_path}'에 성공적으로 복사되었습니다.")
 ```
 
-### (6) 모델 예측
+### (7) 모델 예측
 
 ```python
 model = YOLO('/content/drive/MyDrive/YOLO_Models/dog_detection_model_folder_structure/weights/best.pt') 
