@@ -252,7 +252,6 @@ cv2.destroyAllWindows()
 - 키보드 입력으로 필터 즉시 적용됨
 - haarcascade로 얼굴 인식 후 bounding box 표시 완료
 
----
 - 실습 결과 사진 및 영상
   
 ![결과](test3.png)
