@@ -77,7 +77,7 @@ results = model.train(
 
 ### (5) 모델 저장
 
-#### 구글 드라이브로 저장
+- 구글 드라이브로 저장
 ```python
 results_path = '/content/runs/detect/dog_detection_model_folder_structure/'
 destination_path = '/content/drive/MyDrive/YOLO_Models/'
