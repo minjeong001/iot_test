@@ -254,8 +254,9 @@ cv2.destroyAllWindows()
 
 ---
 - 실습 결과 사진 및 영상
+  
 ![결과](test3.png)
----
+
 ![영상](test3.mp4)
 
 ---
