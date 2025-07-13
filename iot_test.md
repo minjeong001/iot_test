@@ -17,6 +17,7 @@
 ## 2. 실습 과정 및 코드
 
 ### (1) 데이터셋 폴더 구조 변경
+
 ```
 # 아래 그림처럼 your_dataset 폴더 안의 구조를 정확히 맞추어준다.
 
@@ -33,6 +34,7 @@ your_dataset/
 ```
 
 ### (2) your_dataset.yaml 작성
+
 ```yaml
 train: images/train/
 val: images/val/
@@ -40,7 +42,6 @@ nc: 1
 names: ['dog']
 # 저장 시 주의 : 반드시 UTF-8 인코딩으로 저장
 ```
----
 
 ### (3) 구글 드라이브 업로드
 
@@ -56,7 +57,6 @@ drive.mount('/content/drive')
 !unzip -q /content/dog.zip -d /content/ #4단계: dog.zip 압축 해제
 ```
 
----
 
 ### (4) YOLOv8 학습 실행
 
@@ -73,8 +73,6 @@ results = model.train(
 )
 ```
 
----
-
 ### (5) 모델 저장
 
 - 구글 드라이브로 저장
@@ -85,8 +83,6 @@ destination_path = '/content/drive/MyDrive/YOLO_Models/'
 !cp -r {results_path} {destination_path}
 print(f"학습 결과가 '{destination_path}'에 성공적으로 복사되었습니다.")
 ```
-
----
 
 ### (6) 모델 예측
 
@@ -107,6 +103,7 @@ print("\n 예측이 완료되었습니다. 결과 이미지는 코랩 파일 탐
 
 - 강아지 인식 성공 시, bounding box가 그려진 이미지가 저장됨
 - `runs/detect/predict/` 경로에 결과 이미지 확인 가능
+  
 - ![강아지 인식 결과](yolo_dog.png)
 
 ---
