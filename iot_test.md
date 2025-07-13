@@ -103,8 +103,10 @@ print("\n 예측이 완료되었습니다. 결과 이미지는 코랩 파일 탐
 
 - 강아지 인식 성공 시, bounding box가 그려진 이미지가 저장됨
 - `runs/detect/predict/` 경로에 결과 이미지 확인 가능
-  
-- ![강아지 인식 결과](yolo_dog.png)
+
+- 실습 결과
+
+![강아지 인식 결과](yolo_dog.png)
 
 ---
 
